@@ -1,0 +1,181 @@
+doctype html
+html
+  head
+    meta[charset="utf-8"]
+    meta[http-equiv="X-UA-Compatible" content="IE=edge"]
+    title
+      | AdminLTE 2 | Data Tables
+    meta[content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"]
+    link[rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"]
+    link[rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css"]
+    link[rel="stylesheet" href="../bower_components/Ionicons/css/ionicons.min.css"]
+    link[rel="stylesheet" href="../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css"]
+    link[rel="stylesheet" href="../dist/css/AdminLTE.min.css"]
+    link[rel="stylesheet" href="../dist/css/skins/_all-skins.min.css"]
+    link[rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"]
+  body.hold-transition.skin-blue.sidebar-mini
+    .wrapper
+      header.main-header
+        a.logo[href="index2.html"]
+          span.logo-mini
+            b
+              | Bib
+            |  Sy
+          span.logo-lg
+            b
+              | Biblioteca
+            |  Sys
+        nav.navbar.navbar-static-top
+          a.sidebar-toggle[data-toggle="push-menu" href="#" role="button"]
+            span.sr-only
+              | Toggle navigation
+          .navbar-custom-menu
+            ul.nav.navbar-nav
+              li.dropdown.notifications-menu
+                a.dropdown-toggle[data-toggle="dropdown" href="#"]
+                  i.fa.fa-bell-o
+                ul.dropdown-menu
+                  li
+                    ul.menu
+
+                  li.footer
+                    a[href="#"]
+                      | View all
+              li.dropdown.user.user-menu
+                a.dropdown-toggle[data-toggle="dropdown" href="#"]
+                  img.user-image[alt="User Image" src="../dist/img/user2-160x160.jpg"]
+                  span.hidden-xs
+                    | Julian Baez
+                ul.dropdown-menu
+                  li.user-header
+                    img.img-circle[alt="User Image" src="../dist/img/user2-160x160.jpg"]
+                    p
+                      |  Julian Baez
+                      small
+                        | Estudiante en Tec. Sup. en desarrollo de software
+                  li.user-footer
+                    .pull-left
+                      a.btn.btn-default.btn-flat[href="#"]
+                        | Profile
+                    .pull-right
+                      a.btn.btn-default.btn-flat[href="#"]
+                        | Sign out
+      aside.main-sidebar
+        section.sidebar
+          ul.sidebar-menu[data-widget="tree"]
+            li.header
+              | MENU PRINCIPAL
+            li.treeview
+              a[href="#"]
+                i.fa.fa-edit
+                span
+                  | Alquileres
+                span.pull-right-container
+                  i.fa.fa-angle-left.pull-right
+              ul.treeview-menu
+                li
+                  a[href="../alquiler/new"]
+                    i.fa.fa-circle-o
+                    |  Nuevo
+                li
+                  a[href="../alquiler/all"]
+                    i.fa.fa-circle-o
+                    |  Ver todos
+            li.treeview
+              a[href="#"]
+                i.fa.fa-th
+                span
+                  | Libros
+                span.pull-right-container
+                  i.fa.fa-angle-left.pull-right
+              ul.treeview-menu
+                li
+                  a[href="../book/new"]
+                    i.fa.fa-circle-o
+                    |  Nuevo
+                li
+                  a[href="../book/all"]
+                    i.fa.fa-circle-o
+                    |  Ver todos
+            li.treeview
+              a[href="#"]
+                i.fa.fa-user
+                span
+                  | Usuarios
+                span.pull-right-container
+                  i.fa.fa-angle-left.pull-right
+              ul.treeview-menu
+                li
+                  a[href="../client/new"]
+                    i.fa.fa-circle-o
+                    |  Nuevo
+                li
+                  a[href="../"]
+                    i.fa.fa-circle-o
+                    |  Ver todos
+      .content-wrapper
+        section.content-header
+          h1
+            |  Libros
+            small
+              | Lista de todos los libros registrados
+        section.content
+          .row
+            .col-xs-12
+              .box
+                .box-body
+                  table#example1.table.table-bordered.table-striped
+                    thead
+                      tr
+                        th
+                          | Titulo
+                        th
+                          | Autor
+                        th
+                          | Edicion
+                        th
+                          | Año publicacion
+                        th
+                          | Acciones
+                        th
+                          | Estado
+                    tbody
+                      -@books.each do |book|
+                        tr
+                          td
+                            =book.titulo
+                          td
+                            =book.autor
+                          td
+                            =book.anio_publicacion
+                          td
+                            =book.edicion
+                          td
+                            =book.estado
+                          td
+                            a.btn.btn-primary href="../book/ver/#{book.id}"
+                              | Ver
+                            a.btn.btn-primary href="../book/edit/#{book.id}"
+                              | Editar
+      footer.main-footer
+        .pull-right.hidden-xs
+          b
+            | Version
+          |  1.0
+        strong
+          |  Copyright © 2017-2017
+          a[href=""]
+            | Julian Baez
+          |  .
+        |  Derechos reservados
+      .control-sidebar-bg
+    script[src="../bower_components/jquery/dist/jquery.min.js"]
+    script[src="../bower_components/bootstrap/dist/js/bootstrap.min.js"]
+    script[src="../bower_components/datatables.net/js/jquery.dataTables.min.js"]
+    script[src="../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"]
+    script[src="../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"]
+    script[src="../bower_components/fastclick/lib/fastclick.js"]
+    script[src="../dist/js/adminlte.min.js"]
+    script[src="../dist/js/demo.js"]
+    script
+      |  $(function () { $('#example1').DataTable() })

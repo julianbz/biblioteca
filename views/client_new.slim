@@ -1,0 +1,203 @@
+doctype html
+html
+  head
+    meta[charset="utf-8"]
+    meta[http-equiv="X-UA-Compatible" content="IE=edge"]
+    title
+      | AdminLTE 2 | Advanced form elements
+    meta[content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"]
+    link[rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"]
+    link[rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css"]
+    link[rel="stylesheet" href="../../bower_components/Ionicons/css/ionicons.min.css"]
+    link[rel="stylesheet" href="../../bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css"]
+    link[rel="stylesheet" href="../../dist/css/AdminLTE.min.css"]
+    link[rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css"]
+    link[rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"]
+  body.hold-transition.skin-blue.sidebar-mini
+    .wrapper
+      header.main-header
+        a.logo[href="index2.html"]
+          span.logo-mini
+            b
+              | Bib
+            |  Sy
+          span.logo-lg
+            b
+              | Biblioteca
+            |  Sys
+        nav.navbar.navbar-static-top
+          a.sidebar-toggle[data-toggle="push-menu" href="#" role="button"]
+            span.sr-only
+              | Toggle navigation
+          .navbar-custom-menu
+            ul.nav.navbar-nav
+              li.dropdown.notifications-menu
+                a.dropdown-toggle[data-toggle="dropdown" href="#"]
+                  i.fa.fa-bell-o
+                ul.dropdown-menu
+                  li.header
+                    | You have 10 notifications
+                  li
+                    ul.menu
+
+                  li.footer
+                    a[href="#"]
+                      | View all
+              li.dropdown.user.user-menu
+                a.dropdown-toggle[data-toggle="dropdown" href="#"]
+                  img.user-image[alt="User Image" src="../dist/img/user2-160x160.jpg"]
+                  span.hidden-xs
+                    | Julian Baez
+                ul.dropdown-menu
+                  li.user-header
+                    img.img-circle[alt="User Image" src="../dist/img/user2-160x160.jpg"]
+                    p
+                      |  Julian Baez
+                      small
+                        | Estudiante en Tec. Sup. en desarrollo de software
+                  li.user-footer
+                    .pull-left
+                      a.btn.btn-default.btn-flat[href="#"]
+                        | Profile
+                    .pull-right
+                      a.btn.btn-default.btn-flat[href="#"]
+                        | Sign out
+      aside.main-sidebar
+        section.sidebar
+          form.sidebar-form[action="#" method="get"]
+            .input-group
+              input.form-control[name="q" placeholder="Search..." type="text"]
+              span.input-group-btn
+                button#search-btn.btn.btn-flat[name="search" type="submit"]
+                  i.fa.fa-search
+          ul.sidebar-menu[data-widget="tree"]
+            li.header
+              | MENU PRINCIPAL
+            li.treeview
+              a[href="#"]
+                i.fa.fa-edit
+                span
+                  | Alquileres
+                span.pull-right-container
+                  i.fa.fa-angle-left.pull-right
+              ul.treeview-menu
+                li
+                  a[href="../alquiler/new"]
+                    i.fa.fa-circle-o
+                    |  Nuevo
+                li
+                  a[href="../alquiler/all"]
+                    i.fa.fa-circle-o
+                    |  Ver todos
+            li.treeview
+              a[href="#"]
+                i.fa.fa-th
+                span
+                  | Libros
+                span.pull-right-container
+                  i.fa.fa-angle-left.pull-right
+              ul.treeview-menu
+                li
+                  a[href="../book/new"]
+                    i.fa.fa-circle-o
+                    |  Nuevo
+                li
+                  a[href="../book/all"]
+                    i.fa.fa-circle-o
+                    |  Ver todos
+            li.treeview
+              a[href="#"]
+                i.fa.fa-user
+                span
+                  | Usuarios
+                span.pull-right-container
+                  i.fa.fa-angle-left.pull-right
+              ul.treeview-menu
+                li
+                  a[href="../client/new"]
+                    i.fa.fa-circle-o
+                    |  Nuevo
+                li
+                  a[href="../"]
+                    i.fa.fa-circle-o
+                    |  Ver todos
+      .content-wrapper
+        section.content-header
+          h1
+            |  Crear nuevo usuario
+        section.content
+          .row
+            .col-md-1
+
+            .col-md-6
+              .box.box-primary
+                .box-header
+                  form action="/client/new" method="post"
+                    .box-body
+                      .form-group
+                        label[for="exampleInputEmail1"]
+                          | Nombre:
+                        input#exampleInputEmail1.form-control[name="nombre" placeholder="Ingrese nombre"]
+                      .form-group
+                        label[for="exampleInputEmail1"]
+                          | Apellido:
+                        input#exampleInputEmail1.form-control[name="apellido" placeholder="Ingrese apellido"]
+                      .form-group
+                        label[for="exampleInputEmail1"]
+                          | DNI:
+                        input#exampleInputEmail1.form-control[name="dni" placeholder="Ingrese DNI"]
+                      .form-group
+                        label
+                          |  Fecha de nacimiento:
+                        .input-group.date
+                          .input-group-addon
+                            i.fa.fa-calendar
+                          input#datepicker.form-control.pull-right[type="text" name="fecha_nac"]
+                      .form-group
+                        label[for="exampleInputEmail1"]
+                          | Sexo:
+                        .radio
+                          label
+                            input#optionsRadios2[type="radio" name="sexo" value="Masculino"]
+                            |  Masculino
+                        .radio
+                          label
+                            input#optionsRadios2[type="radio" name="sexo" value="Femenino"]
+                            |  Femenino
+                      .form-group
+                        label[for="exampleInputEmail1"]
+                          | Numero de telefono:
+                        input#exampleInputEmail1.form-control[name="telefono" placeholder="Ingrese numero de telefono"]
+                      .form-group
+                        label[for="exampleInputEmail1"]
+                          | Domicilio:
+                        input#exampleInputEmail1.form-control[name="direccion" placeholder="Ingrese domicilio"]
+                      .form-group
+                        label[for="exampleInputEmail1"]
+                          | Ciudad:
+                        input#exampleInputEmail1.form-control[name="ciudad" placeholder="Ingrese ciudad"]
+                    .box-footer
+                      button.btn.btn-primary[type="submit"]
+                        | Guardar
+    footer.main-footer
+      .pull-right.hidden-xs
+        b
+          | Version
+        |  1.0
+      strong
+        |  Copyright © 2017-2017
+        a[href=""]
+          | Julian Baez
+        |  .
+      |  Derechos reservados
+    .control-sidebar-bg
+    script[src="../../bower_components/jquery/dist/jquery.min.js"]
+    script[src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"]
+    script[src="../../plugins/input-mask/jquery.inputmask.js"]
+    script[src="../../plugins/input-mask/jquery.inputmask.date.extensions.js"]
+    script[src="../../plugins/input-mask/jquery.inputmask.extensions.js"]
+    script[src="../../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"]
+    script[src="../../dist/js/adminlte.min.js"]
+    script[src="../../dist/js/demo.js"]
+    script
+      |  $(function () { //Datemask dd/mm/yyyy $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })  $('#datepicker').datepicker({ autoclose: true }) })
